@@ -4,10 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently -k -n 'client,server' -c '#ff0000,#ff8c00' 'npm run client' 'npm run server'",
+    "client": "wait-on tcp:5500 && vite --port 3000",
+    "server": "json-server --watch src/data/db.json --port 5500 --delay",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",
+    "update": "npx npm-check-updates --format group"
   },
   "dependencies": {
     "@ant-design/icons": "^5.6.1",
