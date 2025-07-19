@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { DatePicker, Button, Select, Space } from 'antd'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router'
@@ -19,16 +19,15 @@ type CheckInOutRange = {
   disabled?: boolean
 }
 
-// ant-picker-cell-today disables `Today` frame
-// ant-picker-range-arrow
+// Adding extensions to the library
+dayjs.extend(timezone)
+dayjs.extend(utc)
 
 /**
  * Home page with the ability to select
  * the date and time of the booking
  */
 const Home = () => {
-  document.title = 'Bob W | Exceptionally cool short-stay apartments'
-
   const [dateRange, setDateRange] = useState<[string, string] | Array<undefined>>([])
   const [checkInRange, setCheckInRange] = useState<Array<CheckInOutRange>>()
   const [checkOutRange, setCheckOutRange] = useState<Array<CheckInOutRange>>()
@@ -37,14 +36,19 @@ const Home = () => {
   const [checkOut, setCheckOut] = useState<string>()
 
   const property = useSelector((state: RootState) => state.propertySlice.value)
-  const isPropertyLoaded = !!Object.keys(property).length
-
-  dayjs.extend(timezone)
-  dayjs.extend(utc)
-  dayjs.tz.setDefault(property?.timezone)
+  const isPropertyLoaded = useMemo(() => !!Object.keys(property).length, [property])
 
   useEffect(() => {
-    if (property) {
+    document.title = 'Bob W | Exceptionally cool short-stay apartments'
+  }, [])
+
+  useEffect(() => {
+    // Set the property's time zone instead of the client's time zone
+    if (property?.timezone) dayjs.tz.setDefault(property?.timezone)
+  }, [property?.timezone])
+
+  useEffect(() => {
+    if (isPropertyLoaded && property?.startTimesLocal) {
       // Here we handle the situation when the time
       // in the time zone of the property is already
       // later than the possible hours for chick-in.
@@ -67,25 +71,44 @@ const Home = () => {
         }
       })
 
+      setCheckInRange(startTime)
+    }
+  }, [isPropertyLoaded, property?.startTimesLocal, dateRange[0]])
+
+  useEffect(() => {
+    if (isPropertyLoaded && property?.endTimesLocal) {
       const endTime = property.endTimesLocal?.map(t => ({
         value: t,
         label: t,
       }))
 
-      setCheckInRange(startTime)
       setCheckOutRange(endTime)
     }
-  }, [property, dateRange])
+  }, [isPropertyLoaded, property?.endTimesLocal])
 
   /**
-   * Here we block the past for time zone
-   * property dates
+   * Here we block the days that are before the
+   * current property time zone date
+   *
+   * This function is a performance bottleneck,
+   * the Antd library RangePicker triggers this
+   * function every time you open the calendar and
+   * move the cursor over the days without clicking
+   * on them. At the same time, this function is
+   * hard to optimize using caching hooks because the
+   * RangePicker throws a new object as a parameter
+   * each time this function is called
+   *
+   * TODO: optimize the calculations in this function
    */
   const disablePrevDates = (pickerDate: dayjs.Dayjs) => {
     const pickerDateTZ = dayjs(pickerDate).tz()
     const currentPropDate = dayjs().tz()
     const isSameDate = pickerDateTZ.isSame(currentPropDate, 'date')
 
+    // Check if the RangePicker object is the current
+    // date, and if so, whether the current date contains
+    // time slots when the user can book room of the property
     if (isSameDate) {
       const isAnyAvailableTime = checkInRange?.some(r => !r.disabled)
       return !isAnyAvailableTime
