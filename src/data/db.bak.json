@@ -1,0 +1,111 @@
+{
+  "property": {
+    "id": 1,
+    "name": "Bob W.",
+    "timezone": "Europe/Tallinn",
+    "startTimesLocal": ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00"],
+    "endTimesLocal": ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00"]
+  },
+
+  "rooms": [
+    {
+      "id": 1,
+      "name": "Public room",
+      "pricePerNightNet": 56,
+      "priceTaxPercentage": 0.09,
+      "image": "https://via.placeholder.com/400x200.png?text=Cheap%20room"
+    },
+    {
+      "id": 2,
+      "name": "Little bit private room",
+      "pricePerNightNet": 84,
+      "priceTaxPercentage": 0.09,
+      "image": "https://via.placeholder.com/400x200.png?text=Not%20so%20cheap%20room"
+    },
+    {
+      "id": 3,
+      "name": "Truly your room",
+      "pricePerNightNet": 149,
+      "priceTaxPercentage": 0.09,
+      "image": "https://via.placeholder.com/400x200.png?text=Expensive%20room"
+    },
+    {
+      "id": 4,
+      "name": "Random room",
+      "pricePerNightNet": 270,
+      "priceTaxPercentage": 0.09,
+      "image": "https://via.placeholder.com/400x200.png?text=Expensive%20room"
+    },
+    {
+      "id": 5,
+      "name": "Horror room",
+      "pricePerNightNet": 239,
+      "priceTaxPercentage": 0.09,
+      "image": "https://via.placeholder.com/400x200.png?text=Expensive%20room"
+    },
+    {
+      "id": 6,
+      "name": "Fancy room",
+      "pricePerNightNet": 399,
+      "priceTaxPercentage": 0.09,
+      "image": "https://via.placeholder.com/400x200.png?text=Expensive%20room"
+    },
+    {
+      "id": 7,
+      "name": "Penthouse",
+      "pricePerNightNet": 1499,
+      "priceTaxPercentage": 0.09,
+      "image": "https://via.placeholder.com/400x200.png?text=Expensive%20room"
+    }
+  ],
+
+  "bookings": [
+    {
+      "id": 1,
+      "roomId": 2,
+      "startDateUtc": "2024-06-01T09:00:00.000Z",
+      "endDateUtc": "2024-06-22T13:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "roomId": 3,
+      "startDateUtc": "2024-06-11T08:00:00.000Z",
+      "endDateUtc": "2024-06-22T12:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "roomId": 1,
+      "startDateUtc": "2024-06-25T09:00:00.000Z",
+      "endDateUtc": "2024-06-28T13:00:00.000Z"
+    }
+  ],
+
+  "products": [
+    {
+      "id": 1,
+      "name": "Breakfast",
+      "priceNet": 6,
+      "priceTaxPercentage": 0.09,
+      "chargeMethod": "nightly",
+      "image": "https://via.placeholder.com/400x200.png?text=Breakfast"
+    },
+    {
+      "id": 2,
+      "name": "Parking",
+      "priceNet": 4,
+      "priceTaxPercentage": 0.2,
+      "chargeMethod": "nightly",
+      "image": "https://via.placeholder.com/400x200.png?text=Parking"
+    },
+    {
+      "id": 3,
+      "name": "Sauna Kit",
+      "priceNet": 19,
+      "priceTaxPercentage": 0.09,
+      "chargeMethod": "once-per-booking",
+      "image": "https://via.placeholder.com/400x200.png?text=Sauna%20Kit"
+    }
+  ],
+
+  "booking": []
+}

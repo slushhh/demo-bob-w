@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "concurrently -k -n 'client,server' -c '#ff0000,#ff8c00' 'npm run client' 'npm run server'",
     "client": "wait-on tcp:5500 && vite --port 3000",
-    "server": "json-server --watch src/data/db.json --port 5500 --delay",
+    "server": "json-server src/data/db.json --port 5500",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",

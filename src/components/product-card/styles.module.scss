@@ -1,0 +1,29 @@
+.card {
+  background: rgba(17, 17, 17, 0.05);
+  width: 100%;
+}
+
+.image {
+  width: 100% !important;
+  max-width: 200px;
+}
+
+.name {
+}
+
+.price {
+}
+
+.controls {
+}
+
+.infoIcon {
+  font-size: 10px;
+  position: relative;
+  top: -5px;
+  margin-left: 5px;
+}
+
+.hideBadge {
+  display: none !important;
+}
