@@ -1,69 +1,64 @@
-# React + TypeScript + Vite
+# Bob W
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Test assignment for the role of Front-end developer in Bob W company
 
-Currently, two official plugins are available:
+### Company [LinkedIn](https://www.linkedin.com/company/bobw)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Line of business:** provider of short-term apartments throughout Europe. An alternative to hotels and AirBnB.
 
-## Expanding the ESLint configuration
+## To run
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+npm i
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Tech assignment specifications
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Create a SPA that allows a guest to book a room. The application consists of the following booking stages:
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+* **Booking date and time selection:**
+  * Prevent overlapping bookings.
+  * Dates are displayed in a property's local timezone.
+  * Discounts:
+    * For 3 nights booking or longer gets 5% discount on the booking.
+
+* **Room selection step:**
+  * Shows rooms list with room names, prices and images.
+  * It should be possible to select one of the available rooms.
+
+* **Products step:**
+  * Shows products list with names, prices and images.
+  * Discounts:
+    * For 28 nights or longer booking gets free breakfast offered.
+
+* **Create booking:**
+  * Make a POST request to endpoint http://localhost/booking with the booking data and orders.
+  * Dates must be converted from the property's local timezone to UTC.
+
+* **Success page with summary:**
+  * Booking dates, room and product orders with prices are displayed.
+  * The amount that is saved with discounts is shown.
+
+* **Can navigate back and forth between steps except from the success page.**
+
+### *Mock data should be hardcoded (no need to implement backend)*
+
+## Details of implementation
+
+* Addressed all requirements in the assignment specifications. Additionally:
+  * Added a limitation in the choice of time user check-in, because of the time zones, at the destination `TZ` may be later than app offer to choose. In other words, user can't check in at 1pm if the time zone of the property is already 3pm.
+  * Overall used the design system for better UI/UX
+  * Additionally, `404` page, application error page and other visual elements are created for better UI/UX
+  * All network requests use `AbortController` to abort the request if the user leaves the page while the request is running
+  * Purposefully used `URL` parameters to pass user selection data between pages (dates, rooms, products). Made to simulate the case when a user wants to share a link with another person
+  * A basic backend was used. All requests have random delay to simulate close to real working conditions
+  * Used `Redux` and `Context` as state manager
+  * The architecture of the app is designed to be extensible
+  * `database` data, namely booked rooms, edit in the file `src/data/db.json`
+
+## What additionally could have been implemented
+
+* Caching. Both server query results and stored data in state managers. However, the risk of obsolete data must be considered.
+* Additional techniques in UI designed to increase the conversion rate of room booking (different UI/UX patterns)
+* Preloaders or or progressive image loading for room/product cards
