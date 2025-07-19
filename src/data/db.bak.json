@@ -13,49 +13,49 @@
       "name": "Public room",
       "pricePerNightNet": 56,
       "priceTaxPercentage": 0.09,
-      "image": "https://via.placeholder.com/400x200.png?text=Cheap%20room"
+      "image": "https://placehold.co/400x200/png?text=Cheap%20room"
     },
     {
       "id": 2,
       "name": "Little bit private room",
       "pricePerNightNet": 84,
       "priceTaxPercentage": 0.09,
-      "image": "https://via.placeholder.com/400x200.png?text=Not%20so%20cheap%20room"
+      "image": "https://placehold.co/400x200/png?text=Not%20so%20cheap%20room"
     },
     {
       "id": 3,
       "name": "Truly your room",
       "pricePerNightNet": 149,
       "priceTaxPercentage": 0.09,
-      "image": "https://via.placeholder.com/400x200.png?text=Expensive%20room"
+      "image": "https://placehold.co/400x200/png?text=Expensive%20room"
     },
     {
       "id": 4,
       "name": "Random room",
       "pricePerNightNet": 270,
       "priceTaxPercentage": 0.09,
-      "image": "https://via.placeholder.com/400x200.png?text=Expensive%20room"
+      "image": "https://placehold.co/400x200/png?text=Expensive%20room"
     },
     {
       "id": 5,
       "name": "Horror room",
       "pricePerNightNet": 239,
       "priceTaxPercentage": 0.09,
-      "image": "https://via.placeholder.com/400x200.png?text=Expensive%20room"
+      "image": "https://placehold.co/400x200/png?text=Expensive%20room"
     },
     {
       "id": 6,
       "name": "Fancy room",
       "pricePerNightNet": 399,
       "priceTaxPercentage": 0.09,
-      "image": "https://via.placeholder.com/400x200.png?text=Expensive%20room"
+      "image": "https://placehold.co/400x200/png?text=Expensive%20room"
     },
     {
       "id": 7,
       "name": "Penthouse",
       "pricePerNightNet": 1499,
       "priceTaxPercentage": 0.09,
-      "image": "https://via.placeholder.com/400x200.png?text=Expensive%20room"
+      "image": "https://placehold.co/400x200/png?text=Expensive%20room"
     }
   ],
 
@@ -87,7 +87,7 @@
       "priceNet": 6,
       "priceTaxPercentage": 0.09,
       "chargeMethod": "nightly",
-      "image": "https://via.placeholder.com/400x200.png?text=Breakfast"
+      "image": "https://placehold.co/400x200/png?text=Breakfast"
     },
     {
       "id": 2,
@@ -95,7 +95,7 @@
       "priceNet": 4,
       "priceTaxPercentage": 0.2,
       "chargeMethod": "nightly",
-      "image": "https://via.placeholder.com/400x200.png?text=Parking"
+      "image": "https://placehold.co/400x200/png?text=Parking"
     },
     {
       "id": 3,
@@ -103,7 +103,7 @@
       "priceNet": 19,
       "priceTaxPercentage": 0.09,
       "chargeMethod": "once-per-booking",
-      "image": "https://via.placeholder.com/400x200.png?text=Sauna%20Kit"
+      "image": "https://placehold.co/400x200/png?text=Sauna%20Kit"
     }
   ],
 
