@@ -10,12 +10,7 @@ import { store } from '@/store'
 import { AppLayout } from '@/layouts'
 import { SettingsContext, settingsContext } from '@/context'
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-  createRoutesFromElements,
-} from 'react-router'
+import { createBrowserRouter, RouterProvider, Route, createRoutesFromElements } from 'react-router'
 
 import '@/assets/index.css'
 

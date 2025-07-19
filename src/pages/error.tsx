@@ -21,12 +21,7 @@ const Error = () => {
   return (
     // @ts-expect-error The type of error is always `unknown`
     (error.status === 404 && (
-      <Result
-        status='404'
-        title='404'
-        subTitle='Page not found'
-        extra={backHomeButton}
-      />
+      <Result status='404' title='404' subTitle='Page not found' extra={backHomeButton} />
     )) || (
       <Result
         status='error'
