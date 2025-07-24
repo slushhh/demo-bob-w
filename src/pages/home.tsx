@@ -90,14 +90,18 @@ const Home = () => {
    * Here we block the days that are before the
    * current property time zone date
    *
-   * This function is a performance bottleneck,
-   * the Antd library RangePicker triggers this
-   * function every time you open the calendar and
-   * move the cursor over the days without clicking
-   * on them. At the same time, this function is
+   * This function is a performance bottleneck in
+   * some browsers, the Antd library RangePicker
+   * triggers this function every time you open the
+   * calendar and move the cursor over the days without
+   * clicking on them. However, some calculations in
+   * the Day.js library are quite slow, especially in Safai.
+   * At the same time, this function is
    * hard to optimize using caching hooks because the
    * RangePicker throws a new object as a parameter
-   * each time this function is called
+   * each time this function is called.
+   * One of the optimization plans is to completely
+   * replace the calendar widget with another one.
    *
    * TODO: optimize the calculations in this function
    */
