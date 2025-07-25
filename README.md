@@ -62,3 +62,4 @@ Create a SPA that allows a guest to book a room. The application consists of the
 * Caching. Both server query results and stored data in state managers. However, the risk of obsolete data must be considered.
 * Additional techniques in UI designed to increase the conversion rate of room booking (different UI/UX patterns)
 * Preloaders or or progressive image loading for room/product cards
+* Since the **Antd** component library does not currently support React 19 and the RangePicker widget in conjunction with the Day.js library has poor performance in browsers other than Chromium-based, replace the calendar widget with a widget from another library
