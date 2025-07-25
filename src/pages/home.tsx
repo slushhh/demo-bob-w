@@ -103,6 +103,8 @@ const Home = () => {
    * One of the optimization plans is to completely
    * replace the calendar widget with another one.
    *
+   * Similar issue: https://github.com/iamkun/dayjs/issues/553
+   *
    * TODO: optimize the calculations in this function
    */
   const disablePrevDates = (pickerDate: dayjs.Dayjs) => {
