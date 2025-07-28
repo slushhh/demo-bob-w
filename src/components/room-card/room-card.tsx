@@ -49,11 +49,27 @@ const RoomCard = (props: Props) => {
   }
 
   return (
-    <div className={styles.card} data-room-id={id}>
-      <Image className={styles.image} src={image} preview={false} width='100%' />
+    <div
+      className={styles.card}
+      data-room-id={id}
+    >
+      <Image
+        className={styles.image}
+        src={image}
+        preview={false}
+        width='100%'
+      />
 
-      <Badge.Ribbon text='Discount' color='green' className={badgeStyles}>
-        <Space direction='vertical' size='small' style={{ padding: '20px' }}>
+      <Badge.Ribbon
+        text='Discount'
+        color='green'
+        className={badgeStyles}
+      >
+        <Space
+          direction='vertical'
+          size='small'
+          style={{ padding: '20px' }}
+        >
           <div className={styles.name}>
             <h1>{name}</h1>
           </div>
@@ -61,15 +77,24 @@ const RoomCard = (props: Props) => {
           <div className={styles.price}>Total price: {finalPrice.toFixed(2)}</div>
 
           <Space style={{ marginTop: '10px' }}>
-            <Tag bordered={false} style={{ backgroundColor: '#f5f7f6' }}>
+            <Tag
+              bordered={false}
+              style={{ backgroundColor: '#f5f7f6' }}
+            >
               40 m2
             </Tag>
 
-            <Tag bordered={false} style={{ backgroundColor: '#f5f7f6' }}>
+            <Tag
+              bordered={false}
+              style={{ backgroundColor: '#f5f7f6' }}
+            >
               Sauna
             </Tag>
 
-            <Tag bordered={false} style={{ backgroundColor: '#f5f7f6' }}>
+            <Tag
+              bordered={false}
+              style={{ backgroundColor: '#f5f7f6' }}
+            >
               Pet Friendly
             </Tag>
           </Space>

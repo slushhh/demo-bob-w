@@ -6,7 +6,10 @@ const { Footer: FooterAntd } = Layout
 
 const Footer = () => {
   return (
-    <FooterAntd style={{}} className={styles.footer}>
+    <FooterAntd
+      style={{}}
+      className={styles.footer}
+    >
       <Space size='middle'>About Bob W.</Space>
     </FooterAntd>
   )

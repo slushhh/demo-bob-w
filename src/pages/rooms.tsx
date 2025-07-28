@@ -51,7 +51,12 @@ const Rooms = () => {
             )
           })}
         </Row>
-      )) || <Spin size='large' style={{ position: 'relative', top: '5px', left: '5px' }} />}
+      )) || (
+        <Spin
+          size='large'
+          style={{ position: 'relative', top: '5px', left: '5px' }}
+        />
+      )}
     </>
   )
 }

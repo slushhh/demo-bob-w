@@ -70,17 +70,30 @@ const Products = () => {
           justify='space-between'
         >
           {products.map(p => (
-            <Col key={p.id} lg={{ span: 8 }} md={{ span: 12 }} sm={{ span: 24 }}>
+            <Col
+              key={p.id}
+              lg={{ span: 8 }}
+              md={{ span: 12 }}
+              sm={{ span: 24 }}
+            >
               <ProductCard {...p} />
             </Col>
           ))}
         </Row>
 
-        <Button onClick={onBookRoom} style={{ marginTop: '20px' }}>
+        <Button
+          onClick={onBookRoom}
+          style={{ marginTop: '20px' }}
+        >
           Confirm Booking
         </Button>
       </Guard404>
-    )) || <Spin size='large' style={{ position: 'relative', top: '5px', left: '5px' }} />
+    )) || (
+      <Spin
+        size='large'
+        style={{ position: 'relative', top: '5px', left: '5px' }}
+      />
+    )
   )
 }
 

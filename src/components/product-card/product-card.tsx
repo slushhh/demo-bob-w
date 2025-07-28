@@ -71,11 +71,27 @@ const ProductCard = (props: Props) => {
   }
 
   return (
-    <Badge.Ribbon text='Free' color='green' className={badgeStyles}>
-      <Space className={styles.card} size='middle' data-product-id={id} align='start'>
-        <Image className={styles.image} src={image} preview={false} />
+    <Badge.Ribbon
+      text='Free'
+      color='green'
+      className={badgeStyles}
+    >
+      <Space
+        className={styles.card}
+        size='middle'
+        data-product-id={id}
+        align='start'
+      >
+        <Image
+          className={styles.image}
+          src={image}
+          preview={false}
+        />
 
-        <Space direction='vertical' style={{ padding: '10px 0' }}>
+        <Space
+          direction='vertical'
+          style={{ padding: '10px 0' }}
+        >
           <div className={styles.name}>
             <h2>{name}</h2>
           </div>
@@ -104,7 +120,10 @@ const ProductCard = (props: Props) => {
             </Tooltip>
           </div>
 
-          <Checkbox checked={isChecked} onChange={onCheckboxChange}>
+          <Checkbox
+            checked={isChecked}
+            onChange={onCheckboxChange}
+          >
             Include in booking
           </Checkbox>
         </Space>

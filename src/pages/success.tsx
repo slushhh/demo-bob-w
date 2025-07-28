@@ -137,7 +137,11 @@ const Success = () => {
           status='success'
           title='Success! You have booked a room!'
           extra={
-            <Space direction='vertical' align='start' size='middle'>
+            <Space
+              direction='vertical'
+              align='start'
+              size='middle'
+            >
               <Space>
                 <h3>Details of your reservation:</h3>
               </Space>
@@ -170,7 +174,12 @@ const Success = () => {
             </Space>
           }
         />
-      )) || <Spin size='large' style={{ position: 'relative', top: '5px', left: '5px' }} />}
+      )) || (
+        <Spin
+          size='large'
+          style={{ position: 'relative', top: '5px', left: '5px' }}
+        />
+      )}
     </Guard404>
   )
 }
