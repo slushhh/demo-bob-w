@@ -4,5 +4,6 @@
   "jsxSingleQuote": true,
   "arrowParens": "avoid",
   "quoteProps": "consistent",
-  "printWidth": 100
+  "printWidth": 100,
+  "singleAttributePerLine": true
 }
